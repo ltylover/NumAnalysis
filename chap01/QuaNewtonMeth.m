@@ -32,6 +32,11 @@ function [X_k1, B_k1, err] = QuaNewtonMeth(X_k, B_k)
     V_k = U_k/(U_kT*Y_K);
     B_k1 = B_k + V_k*U_kT;
 
-    err = max(abs(X11-X1), abs(X22-X2));
-    err = max(err, abs(X33-X3));
+    %逐个比较X向量的各元素的差，取最大值作为误差
+%     err = max(abs(X11-X1), abs(X22-X2));
+%     err = max(err, abs(X33-X3));
+
+    %取X向量的差的无穷范数作为误差
+    errMat = X_k1 - X_k;
+    err = norm(errMat, "inf");
 end

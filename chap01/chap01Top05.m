@@ -15,10 +15,9 @@ dF = [X2,           X1,           -2*X3;
 
 B_k = (dF)^(-1);
 
-err = 1;
 iStep = 0;
 
-% while iStep <1
+err = 1;
 while err > 0.000005
 
     [X_k1, B_k1, err] = QuaNewtonMeth(X_k, B_k);

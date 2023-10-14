@@ -4,10 +4,11 @@ function [X] = GaussColuPrinElemEliminMeth(A)
     
     %化为上三角矩阵
     for i = 1 : (m - 1)
-        A_Colu = A(:, i);
+        A_Colu = A([i:m-1], i);
         A_ColuAbs = abs(A_Colu);
         [x, y] = find(A_ColuAbs == max(A_ColuAbs));
         z = x(1, 1);
+        z = z + i - 1;
         A([i, z], :) = A([z, i], :);
         for j = i : (m - 1)
             a_i = A(i, i);

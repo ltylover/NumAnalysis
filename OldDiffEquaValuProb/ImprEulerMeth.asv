@@ -1,0 +1,13 @@
+clc;
+clear;
+
+% f(x, y) = x + y
+
+h = 0.2;
+a = 0;
+b = 1;
+xArray = 0;
+yArray = 1;
+k = 2;
+for i = a:h:b
+    yArray(1, k) = yArray(1, k-1)

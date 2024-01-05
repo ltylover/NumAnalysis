@@ -8,9 +8,9 @@ dataArray = table2array(dataTable);
 LeastSquaTable = dataArray(:, :);
 [m, n] = size(LeastSquaTable);
 
-% 拟合函数为：y=a+b*x
-% 2个未知数，故维度为2
-dimen = 2;
+% 拟合函数为：y=a+b*x+c*x^3
+% 3个未知数，故维度为3
+dimen = 3;
 % Amat*Cmat=Bmat, Cmat是由a和b系数组成的列向量
 Amat = zeros(dimen);
 Bmat = zeros(dimen, 1);
@@ -25,8 +25,8 @@ for i = 1:dimen
                     f = 0;
                 case 2
                     f = 1;
-%                 case 3
-%                     f = 2;
+                case 3
+                    f = 2;
 %                 case 4
 %                     f = 3;
             end
@@ -36,8 +36,8 @@ for i = 1:dimen
                     g = 0;
                 case 2
                     g = 1;
-%                 case 3
-%                     g = 2;
+                case 3
+                    g = 2;
 %                 case 4
 %                     g = 3;
             end
@@ -58,8 +58,8 @@ for i = 1:dimen
                 f = 0;
             case 2
                 f = 1;
-%             case 3
-%                 f = 2;
+            case 3
+                f = 2;
 %             case 4
 %                 f = 3;
         end
@@ -78,14 +78,14 @@ scatter(PotX, PotY)
 
 a = Cmat(1, 1);
 b = Cmat(2, 1);
-% c = Cmat(3, 1);
+c = Cmat(3, 1);
 % d = Cmat(4, 1);
 InterA = LeastSquaTable(1, 1);
 InterB = LeastSquaTable(1, n);
 i = 1;
 iStep = 0.001; % 步长
 for x = InterA:iStep:InterB
-    yFun(1, i) = a + b*x;% 拟合的函数
+    yFun(1, i) = a + b*x + c*x^2;% 拟合的函数
     i = i + 1;
 end
 x = [InterA:iStep:InterB];

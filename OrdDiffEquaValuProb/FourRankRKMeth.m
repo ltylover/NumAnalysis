@@ -3,12 +3,12 @@ clear;
 
 % y' = x + y
 
-% h = 0.2;
-h = 0.1;
+h = 0.2;
+% h = 0.1;
 a = 0;
 b = 1;
 xArray = 0;
-yArray = 1;
+yArray = 0.6;
 k = 2;
 for i = a+h:h:b
     x_n = xArray(1, k-1);
